@@ -1,6 +1,5 @@
 # requirements.txt
 python-dotenv
-pysqlite3-binary
 
 # Streamlit
 streamlit
