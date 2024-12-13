@@ -15,14 +15,8 @@ langchain-chroma
 # Document processing
 pypdf
 
-# Embeddings and vector storage
 sentence-transformers
 chromadb
 huggingface-hub
 
-# Optional but recommended for better performance
-tiktoken
 
-# Additional dependencies
-transformers
-torch
