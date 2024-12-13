@@ -1,28 +1,28 @@
 # Core Python libraries
-python-dotenv>=0.21.0
+python-dotenv
 
 # Streamlit for web application
-streamlit>=1.29.0
+streamlit
 
 # LangChain ecosystem (using more flexible version specifications)
-langchain>=0.0.350
-langchain-core>=0.1.16
-langchain-community>=0.0.37
-langchain-groq>=0.0.5
-langchain-huggingface>=0.0.2
-langchain-chroma>=0.0.1
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-chroma
 
 # Document processing
-pypdf>=4.0.1
+pypdf
 
 # Embeddings and vector storage
-sentence-transformers>=2.3.1
-chromadb>=0.4.22
-huggingface-hub>=0.20.3
+sentence-transformers
+chromadb
+huggingface-hub
 
 # Optional but recommended for better performance
-tiktoken>=0.5.2
+tiktoken
 
 # Additional dependencies
-transformers>=4.37.0
-torch>=2.1.0
+transformers
+torch
