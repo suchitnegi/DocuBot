@@ -1,10 +1,10 @@
-# Core Python libraries
+# requirements.txt
 python-dotenv
 
-# Streamlit for web application
+# Streamlit
 streamlit
 
-# LangChain ecosystem (using more flexible version specifications)
+# LangChain ecosystem
 langchain
 langchain-core
 langchain-community
@@ -14,9 +14,4 @@ langchain-chroma
 
 # Document processing
 pypdf
-
-sentence-transformers
 chromadb
-huggingface-hub
-
-
