@@ -38,8 +38,15 @@ class EnhancedPDFChatbot:
         # Create Chat History Store
         self.store = {}
 
+        # Add this to handle potential Chroma initialization issues
+        try:
+            # Ensure Chroma can be imported and initialized
+            chromadb.EphemeralClient()
+        except Exception as e:
+            st.error(f"Chroma initialization error: {str(e)}")
+
     def load_pdf_documents(self, uploaded_files):
-        # Collect all documents from uploaded PDFs
+    # Collect all documents from uploaded PDFs
         all_splits = []
         
         # Create text splitter
@@ -68,11 +75,21 @@ class EnhancedPDFChatbot:
         
         # Create and set retriever from PDF documents
         if all_splits:
-            vectorstore = Chroma.from_documents(documents=all_splits, embedding=self.embeddings)
-            self.retriever = vectorstore.as_retriever()
-            return True
-        return False
-
+            try:
+                # Use in-memory Chroma client for Streamlit deployment
+                vectorstore = Chroma.from_documents(
+                    documents=all_splits, 
+                    embedding=self.embeddings,
+                    # Use EphemeralClient to avoid persistent storage issues
+                    client=chromadb.EphemeralClient(),
+                    collection_name="pdf_documents"
+                )
+                self.retriever = vectorstore.as_retriever()
+                return True
+            except Exception as e:
+                st.error(f"Chroma initialization error: {str(e)}")
+                return False
+        return False   
     def _create_conversational_rag_chain(self):
         # Check if retriever is set
         if self.retriever is None:
